@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
   def help; end
 
   def about; end
+
+  def contact
+    # => app/viwes/static_pages/contact.html.erb
+  end
 end
