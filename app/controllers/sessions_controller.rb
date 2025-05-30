@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
   def new
     # × @session = Session.new
     # ○ scope: :session + url: login_path
@@ -17,5 +18,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    log_out if logged_in?
+    redirect_to root_url, status: :see_other
+  end
 end
